@@ -13,9 +13,9 @@ import java.util.regex.Pattern;
 
 public class FilesReaderImpl implements FilesReader {
 
-	private Map<String, FilesReader> readers = new HashMap<>();
 	private final FilesReader jsonReader;
 	private final FilesReader csvReader;
+	private Map<String, FilesReader> readers = new HashMap<>();
 
 	@Inject
 	public FilesReaderImpl(@JsonReader FilesReader jsonReader, @CsvReader FilesReader csvReader) {

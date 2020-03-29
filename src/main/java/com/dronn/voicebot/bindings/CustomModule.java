@@ -1,9 +1,9 @@
 package com.dronn.voicebot.bindings;
 
-import com.dronn.voicebot.service.calculator.Calculator;
-import com.dronn.voicebot.service.calculator.CalculatorImpl;
 import com.dronn.voicebot.service.UserFeedback;
 import com.dronn.voicebot.service.UserFeedbackImpl;
+import com.dronn.voicebot.service.calculator.Calculator;
+import com.dronn.voicebot.service.calculator.CalculatorImpl;
 import com.dronn.voicebot.service.calculator.CsvSalaryPrinter;
 import com.dronn.voicebot.service.calculator.JsonSalaryPrinter;
 import com.dronn.voicebot.service.calculator.SalaryPrinter;

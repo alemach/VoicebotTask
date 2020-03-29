@@ -1,6 +1,7 @@
 package com.dronn.voicebot.service.calculator;
 
-import com.dronn.voicebot.service.fileReaders.FilesReader;
+import com.dronn.voicebot.bindings.annotations.CsvPrinter;
+import com.dronn.voicebot.bindings.annotations.JsonPrinter;
 import com.google.inject.Inject;
 
 import java.nio.file.Path;
@@ -10,16 +11,16 @@ import java.util.regex.Pattern;
 
 public class SalaryPrinterImpl implements SalaryPrinter {
 
+	private final SalaryPrinter jsonPrinter;
+	private final SalaryPrinter csvPrinter;
 	private Map<String, SalaryPrinter> printers = new HashMap<>();
-	private final FilesReader reader;
-	private final Calculator calculator;
 
 	@Inject
-	public SalaryPrinterImpl(@com.dronn.voicebot.bindings.annotations.FilesReader FilesReader reader, Calculator calculator) {
-		this.reader = reader;
-		this.calculator = calculator;
-		this.printers.put("jsonPrinter", new JsonSalaryPrinter(reader, calculator));
-		this.printers.put("csvPrinter", new CsvSalaryPrinter(reader, calculator));
+	public SalaryPrinterImpl(@JsonPrinter SalaryPrinter jsonPrinter, @CsvPrinter SalaryPrinter csvPrinter) {
+		this.jsonPrinter = jsonPrinter;
+		this.csvPrinter = csvPrinter;
+		this.printers.put("jsonPrinter", jsonPrinter);
+		this.printers.put("csvPrinter", csvPrinter);
 	}
 
 	@Override

@@ -18,7 +18,7 @@ public class JsonSalaryPrinter implements SalaryPrinter {
 
 	@Override
 	public void printSalaries(Path path) {
-			calculator.calculateSalaries(reader.mapFile(path))
-					.forEach((job, salarySum) -> System.out.printf("%s: %.2f%n", job, salarySum));
+		calculator.calculateSalaries(reader.mapFile(path))
+				.forEach((job, salarySum) -> System.out.printf("%s: %.2f%n", job, salarySum));
 	}
 }

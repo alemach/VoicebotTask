@@ -1,12 +1,10 @@
 package com.dronn.voicebot;
 
 import com.dronn.voicebot.bindings.CustomModule;
-import com.dronn.voicebot.service.calculator.Calculator;
 import com.dronn.voicebot.service.calculator.SalaryPrinter;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.Key;
-import com.google.inject.name.Names;
 
 import java.io.FileNotFoundException;
 import java.nio.file.Path;

@@ -1,18 +1,5 @@
 package com.dronn.voicebot.service;
 
-import com.dronn.voicebot.model.Employee;
-import com.dronn.voicebot.service.fileReaders.CsvReaderImpl;
-import org.junit.Before;
-import org.junit.Test;
-
-import java.math.BigDecimal;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.List;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-
 public class CsvReaderTest {
 //	private Path pathOk;
 //	private Path pathWithEmptyLine;
