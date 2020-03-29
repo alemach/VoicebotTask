@@ -11,7 +11,7 @@ public class UserFeedbackImpl implements UserFeedback {
 
 	private static UserFeedback INSTANCE = null;
 
-	private UserFeedbackImpl() {
+	public UserFeedbackImpl() {
 	}
 
 	public static synchronized UserFeedback getInstance() {

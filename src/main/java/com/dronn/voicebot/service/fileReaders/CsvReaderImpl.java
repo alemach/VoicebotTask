@@ -1,4 +1,4 @@
-package com.dronn.voicebot.service;
+package com.dronn.voicebot.service.fileReaders;
 
 import com.dronn.voicebot.model.Employee;
 import com.opencsv.bean.CsvToBean;
@@ -11,7 +11,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
-public class CsvReaderImpl implements CsvReader {
+public class CsvReaderImpl implements FilesReader {
 
 	@Override
 	public List<Employee> mapFile(Path path) {
@@ -32,4 +32,5 @@ public class CsvReaderImpl implements CsvReader {
 
 		return employees;
 	}
+
 }

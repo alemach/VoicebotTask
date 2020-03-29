@@ -1,7 +1,12 @@
 package com.dronn.voicebot;
 
-import com.dronn.voicebot.service.Calculator;
-import com.dronn.voicebot.service.CalculatorImpl;
+import com.dronn.voicebot.bindings.CustomModule;
+import com.dronn.voicebot.service.calculator.Calculator;
+import com.dronn.voicebot.service.calculator.SalaryPrinter;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+import com.google.inject.Key;
+import com.google.inject.name.Names;
 
 import java.io.FileNotFoundException;
 import java.nio.file.Path;
@@ -14,10 +19,10 @@ public class Main {
 
 	public static void main(String[] args) throws FileNotFoundException {
 
-		Calculator calculator = new CalculatorImpl();
-
-		calculator.printSalariesFromJson(JSON_PATH);
-		calculator.printSalariesFromCsv(CSV_PATH);
+		Injector injector = Guice.createInjector(new CustomModule());
+		SalaryPrinter printer = injector.getInstance(Key.get(SalaryPrinter.class, com.dronn.voicebot.bindings.annotations.SalaryPrinter.class));
+		printer.printSalaries(JSON_PATH);
+		printer.printSalaries(CSV_PATH);
 
 	}
 }

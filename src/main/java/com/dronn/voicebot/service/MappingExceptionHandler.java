@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.deser.DeserializationProblemHandler;
 import java.io.IOException;
 
 public class MappingExceptionHandler extends DeserializationProblemHandler {
-	private UserFeedback feedback;
+	private final UserFeedback feedback;
 
 	public MappingExceptionHandler() {
 		this.feedback = UserFeedbackImpl.getInstance();
