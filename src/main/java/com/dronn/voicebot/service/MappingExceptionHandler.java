@@ -2,14 +2,16 @@ package com.dronn.voicebot.service;
 
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.deser.DeserializationProblemHandler;
+import com.google.inject.Inject;
 
 import java.io.IOException;
 
 public class MappingExceptionHandler extends DeserializationProblemHandler {
 	private final UserFeedback feedback;
 
-	public MappingExceptionHandler() {
-		this.feedback = UserFeedbackImpl.getInstance();
+	@Inject
+	public MappingExceptionHandler(UserFeedback feedback) {
+		this.feedback = feedback;
 	}
 
 	@Override

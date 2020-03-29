@@ -1,5 +1,7 @@
 package com.dronn.voicebot.bindings;
 
+import com.dronn.voicebot.converters.SalaryProcessor;
+import com.dronn.voicebot.service.MappingExceptionHandler;
 import com.dronn.voicebot.service.UserFeedback;
 import com.dronn.voicebot.service.UserFeedbackImpl;
 import com.dronn.voicebot.service.calculator.Calculator;
@@ -12,12 +14,14 @@ import com.dronn.voicebot.service.fileReaders.CsvReaderImpl;
 import com.dronn.voicebot.service.fileReaders.FilesReader;
 import com.dronn.voicebot.service.fileReaders.FilesReaderImpl;
 import com.dronn.voicebot.service.fileReaders.JsonReaderImpl;
+import com.fasterxml.jackson.databind.deser.DeserializationProblemHandler;
 import com.google.inject.AbstractModule;
 
 public class CustomModule extends AbstractModule {
 
 	@Override
 	protected void configure() {
+		bind(DeserializationProblemHandler.class).to(MappingExceptionHandler.class);
 		bind(FilesReader.class)
 				.annotatedWith(com.dronn.voicebot.bindings.annotations.FilesReader.class)
 				.to(FilesReaderImpl.class);

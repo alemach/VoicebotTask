@@ -2,18 +2,19 @@ package com.dronn.voicebot.converters;
 
 import com.dronn.voicebot.service.UserFeedback;
 import com.dronn.voicebot.service.UserFeedbackImpl;
+import com.google.inject.Inject;
 import com.opencsv.bean.processor.StringProcessor;
 
 import java.math.BigDecimal;
 
 public class SalaryProcessor implements StringProcessor {
-
-	private UserFeedback feedback;
+	private final UserFeedback feedback;
 
 	public SalaryProcessor() {
 		this.feedback = UserFeedbackImpl.getInstance();
 	}
 
+	@Inject
 	public SalaryProcessor(UserFeedback feedback) {
 		this.feedback = feedback;
 	}
